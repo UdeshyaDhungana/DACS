@@ -151,6 +151,9 @@ def evaluate(model, dataset, ignore_label=250, save_output_images=False, save_di
         interp = nn.Upsample(size=(720,1280), mode='bilinear', align_corners=True)
         ignore_label = 255
 
+    elif dataset == 'natural':
+        raise NotImplementedError()
+
     print('Evaluating, found ' + str(len(testloader)) + ' images.')
 
     data_list = []
