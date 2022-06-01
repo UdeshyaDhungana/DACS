@@ -2,6 +2,7 @@ import os
 import torch
 import numpy as np
 import scipy.misc as m
+import imageio
 
 from torch.utils import data
 
@@ -28,7 +29,7 @@ class NaturalImagesLoader(data.Dataset):
 
     def __getitem__(self, index):
         img_path = self.files[index].rstrip()
-        img = m.imread(img_path)
+        img = imageio.imread(img_path)
         img = np.array(img, dtype=np.uint8)
         img = np.transpose(img, (2,0,1))
         img = img.astype('float32')
