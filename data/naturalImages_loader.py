@@ -8,7 +8,7 @@ from torch.utils import data
 from data.city_utils import recursive_glob
 from data.augmentations import *
 
-class NaturalDatasetLoader(data.Dataset):
+class NaturalImagesLoader(data.Dataset):
 
     def __init__(self, root):
         self.root = root 
