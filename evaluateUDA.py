@@ -152,7 +152,13 @@ def evaluate(model, dataset, ignore_label=250, save_output_images=False, save_di
         ignore_label = 255
 
     elif dataset == 'natural':
-        raise NotImplementedError()
+        num_classes = 19
+        data_loader = get_loader('natural')
+        data_path = get_data_path('natural')
+        test_dataset = data_loader(data_path, img_size=input_size, img_mean = IMG_MEAN, is_transform=True, split='val')
+        testloader = data.DataLoader(test_dataset, batch_size=1, shuffle=False, pin_memory=True)
+        interp = nn.Upsample(size=input_size, mode='bilinear', align_corners=True)
+        ignore_label = 255
 
     print('Evaluating, found ' + str(len(testloader)) + ' images.')
 
