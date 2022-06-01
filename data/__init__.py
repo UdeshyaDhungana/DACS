@@ -30,4 +30,4 @@ def get_data_path(name):
     if name == 'synthia':
         return '../data/RAND_CITYSCAPES'
     if name == 'natural':
-        return '../data/NaturalImages'
+        return '/content/drive/MyDrive/Colab Notebooks/maya.ai/DACS/data/NaturalImages/'
