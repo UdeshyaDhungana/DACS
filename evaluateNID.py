@@ -126,11 +126,10 @@ def evaluate(ignore_label=250):
             if save_output_images:
                 #filename = os.path.join(save_dir, '{}.png'.format(name[0]))
                 save_name = img_name[0]
-                print('save_name: ', save_name, type(save_name))
-                save_name = '/content/drive/MyDrive/Colab Notebooks/maya.ai/content/saved_img' + save_name
-                print("Filename:", save_name)
+                save_name = save_dir + save_name
                 color_file = Image.fromarray(colorize(output).transpose(1, 2, 0), 'RGB')
-                color_file.save(save_dir + save_name)
+                print("Filename:", save_name)
+                color_file.save(save_name)
             print("Processing...")
         if (index+1) % 100 == 0:
             print('%d processed'%(index+1))
